@@ -117,20 +117,17 @@ export default function Wheel({ nameList }) {
     container.on("click", spin);
 
     function spin(d) {
-      container.on("click", null);
       oldrotation = rotation;
       let ps = 360 / nameList.length,
         pieslice = Math.round(1440 / nameList.length),
         rng = Math.floor(Math.random() * 1440 + 360);
 
       rotation = Math.round(rng / ps) * ps;
-
       picked = Math.round(nameList.length - (rotation % 360) / ps);
       picked = picked >= nameList.length ? picked % nameList.length : picked;
-
-      rotation += 90 - Math.round(ps / 2);
-      vis.transition().duration(3000).attrTween("transform", rotTween);
-      container.on("click", spin);
+      // we want it to land at a random point in the pie slice
+      rotation += 90 - Math.round(ps / Math.random());
+      vis.transition().duration(10000).attrTween("transform", rotTween).ease(d3.easeCubicOut);
     }
     //draw spin circle
     const colors = ["#8f6b29", "#fde08d", "#df9f28"];

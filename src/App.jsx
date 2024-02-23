@@ -18,7 +18,7 @@ export default function App() {
         <div>NO WHEEL</div>
       </div>
       <div className="main">
-        <Wheel nameList={nameList} />
+        <Wheel key={nameList.length} nameList={nameList} />
         <AddNames nameList={nameList} setNameList={addName} show={showNames} />
       </div>
       <div className="brand">WILLIAMS RACING</div>
