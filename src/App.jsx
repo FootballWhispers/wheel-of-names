@@ -1,10 +1,11 @@
 import "./styles.css";
 import Wheel from "./wheel";
-// import AddNames from "./addNames";
+import AddNames from "./addNames";
 import { useState } from "react";
 
 export default function App() {
-  const [nameList, setNameList] = useState(["Amy", "Bob", "Cindy", "Dorothy", "Randy", "Eugene", "Gregory", "Marge"]);
+  const [nameList, setNameList] = useState(["Name 1", "Name 2", "Name 3", "Name 4"]);
+  const [showNames, setShowNames] = useState(false);
 
   const addName = (names) => {
     setNameList([...names]);
@@ -18,9 +19,10 @@ export default function App() {
       </div>
       <div className="main">
         <Wheel nameList={nameList} />
-        {/*<AddNames nameList={nameList} setNameList={addName} />*/}
+        <AddNames nameList={nameList} setNameList={addName} show={showNames} />
       </div>
       <div className="brand">WILLIAMS RACING</div>
+      <p className="show-text" onClick={() => setShowNames(!showNames)}>{showNames ? 'Hide' : 'Edit Names'}</p>
     </div>
   );
 }

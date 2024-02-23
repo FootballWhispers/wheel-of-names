@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -6,6 +8,12 @@ body {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
   background-color: #041290;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "WilliamsLight";
+  src: url("src/fonts/Williams-Light.woff");
 }
 
 @font-face {
@@ -39,23 +47,47 @@ body {
 }
 
 .addNames {
-  margin: 100px;
-  width: 100%;
+  font-family: "Inter", sans-serif;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 300px;
+  height: 100%;
+  padding-left: 25px;
+  padding-top: 50px;
+  background: rgb(18,26,56);
+  background: linear-gradient(130deg, rgba(18,26,56,0.75) 0%, rgba(0,0,255,0.75) 150%);
+  transition: left 0.3s;
+}
+
+.addNames.show {
+  left: calc(100% - 300px);
 }
 
 .inputWrapper {
   display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.inputWrapper input {
+  width: 75%;
+}
+
+.inputWrapper button {
+  width: 20%;
 }
 
 .name {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  width: 250px;
 }
 
 input {
   padding: 0.8em;
-  font-family: "Williams";
+  font-family: "Inter", sans-serif;
 }
 
 input:focus {
@@ -72,28 +104,27 @@ button {
 input,
 button {
   font-size: 1em;
-  border: 2px solid rgba(20, 25, 63, 1);
+  border: 2px solid white;
+  border-radius: 0;
 }
 
 .addButton {
   color: white;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 244, 0.7);
+  background-color: #121a38;
 }
 
 .deleteButton {
   color: white;
-  background-color: rgba(0, 0, 244, 0.7);
-  font-size: 1em;
+  background-color: transparent;
+  border: none;
   border-radius: 100%;
   width: 52px;
   height: 52px;
   margin: 0px 4px;
+  background-image: url('./images/delete.png');
 }
 
 ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   list-style: none;
   width: 100%;
   padding: 0;
@@ -101,12 +132,19 @@ ul {
 
 li {
   width: 100%;
-  padding: 15px;
+  padding: 0 0 0 15px;
   text-align: left;
   margin-bottom: 7px;
   color: white;
-  background: rgba(20, 25, 63, 1);
+  background: rgba(20, 25, 63, 0.5);
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li span {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .title {
@@ -181,4 +219,16 @@ text {
 
 .arc {
   filter: drop-shadow(12px 12px 124px rgba(0, 0, 0, 0.25));
+}
+
+p.show-text {
+  color: white;
+  font-size: 12px;
+  font-family: "Williams";
+  text-align: left;
+  position: absolute;
+  top: 0;
+  right: 12px;
+  cursor: pointer;
+  text-decoration: underline;
 }
