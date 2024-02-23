@@ -11,15 +11,16 @@ export default function Wheel({ nameList }) {
       h = 750 - padding.top - padding.bottom,
       rotation = 0,
       oldrotation = 0,
-      r = 330,
+      r = 310,
       picked = 100000,
       color = d3.scaleOrdinal().range(["#0000fb", "white"]);
     const svg = d3
       .select("#chart")
       .append("svg")
       .data([nameList])
-      .attr("width", w + padding.left + padding.right)
-      .attr("height", h + padding.top + padding.bottom);
+      .attr("width", '100%')
+      .attr("height", '100%')
+      .attr("viewBox", `0 0 ${w + padding.left + padding.right} ${h + padding.top + padding.bottom}`);
     const container = svg
       .append("g")
       .attr(
@@ -35,17 +36,17 @@ export default function Wheel({ nameList }) {
       .append("circle")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", 367.5)
-      .style("stroke", "white")
+      .attr("r", 347.5)
+      .style("stroke", "#bfb7ff")
       .style("stroke-width", "2px")
-      .style('fill', 'rgba(0, 14, 137, 1)');
+      .style('fill', '#0108d7');
 
     container
       .append("circle")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", 331.5)
-      .style("stroke", "white")
+      .attr("r", 311.5)
+      .style("stroke", "#bfb7ff")
       .style("stroke-width", "2px")
 
     const vis = container.append("g");
@@ -93,9 +94,10 @@ export default function Wheel({ nameList }) {
 
     arcs
       .append("circle")
+      .attr("class", "dot")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", 5)
+      .attr("r", 8)
       .attr("transform", function (d) {
         d.innerRadius = 0;
         d.outerRadius = r;
@@ -133,15 +135,15 @@ export default function Wheel({ nameList }) {
     //draw spin circle
     const colors = ["#8f6b29", "#fde08d", "#df9f28"];
 
-    const grad = svg.append('defs')
+    const grad1 = svg.append('defs')
       .append('linearGradient')
-      .attr('id', 'grad')
+      .attr('id', 'grad1')
       .attr('x1', '0%')
       .attr('x2', '0%')
       .attr('y1', '0%')
       .attr('y2', '100%');
 
-    grad.selectAll('stop')
+    grad1.selectAll('stop')
       .data(colors)
       .enter()
       .append('stop')
@@ -149,6 +151,25 @@ export default function Wheel({ nameList }) {
       .attr('offset', function (d, i) {
         return 100 * (i / (colors.length - 1)) + '%';
       })
+
+      const colors2 = ["#20185b", "#1a03fc", "#20185b"];
+
+      const grad2 = svg.append('defs')
+        .append('linearGradient')
+        .attr('id', 'grad2')
+        .attr('x1', '0%')
+        .attr('x2', '0%')
+        .attr('y1', '0%')
+        .attr('y2', '100%');
+      
+      grad2.selectAll('stop')
+        .data(colors2)
+        .enter()
+        .append('stop')
+        .style('stop-color', function (d) { return d; })
+        .attr('offset', function (d, i) {
+          return 100 * (i / (colors2.length - 1)) + '%';
+        })
 
     container
       .append("circle")
@@ -162,9 +183,9 @@ export default function Wheel({ nameList }) {
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", 40)
-      .style('stroke', 'rgba(20, 25, 63, 1)')
+      .style('stroke', '1e20c1')
       .style("stroke-width", "2px")
-      .style('fill', 'url(#grad)');
+      .style('fill', 'url(#grad1)');
 
     container
       .append("circle")
@@ -173,24 +194,25 @@ export default function Wheel({ nameList }) {
       .attr("r", 30)
       .style('stroke', '#8f6b29')
       .style("stroke-width", "3px")
-      .style('fill', 'url(#grad)');
+      .style('fill', 'url(#grad1)');
 
     //make arrow
     svg
       .append("g")
+      .attr("id", "arrow")
       .attr(
         "transform",
         "translate(" +
-        (w + padding.left + padding.right) +
+        (w + padding.left + padding.right - 20) +
         "," +
         (h / 2 + padding.top) +
         ")",
       )
       .append("path")
       .attr("d", "M-" + r * 0.25 + ",0L0," + r * 0.05 + "L0,-" + r * 0.05 + "Z")
-      .style('stroke', 'rgba(20, 25, 63, 1)')
+      .style('stroke', '#f5f5f2')
       .style("stroke-width", "2px")
-      .style('fill', 'url(#grad)');
+      .style('fill', 'url(#grad2)');
 
     function rotTween() {
       let i = d3.interpolate(oldrotation % 360, rotation);
@@ -201,10 +223,10 @@ export default function Wheel({ nameList }) {
   }, [nameList]);
 
   return (
-    <div>
-      <div className="wheelHolder">
+      <div className="wheelHolder" style={{
+        width: '100%',
+      }}>
         <div id="chart" ref={domRef}></div>
       </div>
-    </div>
   );
 }

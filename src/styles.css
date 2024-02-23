@@ -1,6 +1,11 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./images/V2.png');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-color: #041290;
 }
 
 @font-face {
@@ -21,7 +26,10 @@ body {
 .App {
   font-family: "Williams";
   text-align: center;
-  background-image: url('/workspaces/workspace/src/images/V2.png');
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .spinButtonText {
@@ -110,6 +118,16 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-shadow:
+    /* White glow */
+    0 0 7px #a5a5a576,
+    0 0 10px #a5a5a576,
+    0 0 21px #a5a5a576,
+    0 0 42px #a5a5a576,
+    0 0 82px #a5a5a576,
+    0 0 92px #a5a5a576,
+    0 0 102px #a5a5a576,
+    0 0 151px #a5a5a576;
 }
 
 .question {
@@ -120,15 +138,47 @@ li {
 
 .brand {
   color: white;
-  padding: 0px 20px 20px 20px;
+  padding: 30px;
   font-size: 20px;
+  text-shadow:
+    /* White glow */
+    0 0 7px #a5a5a576,
+    0 0 10px #a5a5a576,
+    0 0 21px #a5a5a576,
+    0 0 42px #a5a5a576,
+    0 0 82px #a5a5a576,
+    0 0 92px #a5a5a576,
+    0 0 102px #a5a5a576,
+    0 0 151px #a5a5a576;
 }
 
 .main {
   display: flex;
   justify-content: space-around;
+  height: 50%;
+  margin: 0 auto;
 }
 
 .wheel {
   box-shadow: 10px 5px 5px red;
+}
+
+circle:not(.dot) {
+  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.75));
+}
+
+circle.dot {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+text {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+#arrow {
+  filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 1));
+}
+
+.arc {
+  filter: drop-shadow(12px 12px 124px rgba(0, 0, 0, 0.25));
 }
