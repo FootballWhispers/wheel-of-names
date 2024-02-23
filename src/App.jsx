@@ -1,7 +1,7 @@
 import "./styles.css";
 import Wheel from "./wheel";
 import AddNames from "./addNames";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function App() {
   const [nameList, setNameList] = useState(["Name 1", "Name 2", "Name 3", "Name 4"]);
@@ -10,11 +10,6 @@ export default function App() {
   const addName = (names) => {
     setNameList([...names]);
   };
-
-  useEffect(() => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }, []);
 
   return (
     <div className="App">

@@ -36,7 +36,6 @@ body {
   font-family: "Williams", "Inter", sans-serif;
   text-align: center;
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,19 +52,19 @@ body {
   font-family: "Inter", sans-serif;
   position: absolute;
   top: 0;
-  left: 100%;
+  display: none;
+  left: calc(100% - 300px);
   width: 300px;
   height: calc(100% - 50px);
   padding-left: 25px;
   padding-top: 50px;
   background: rgb(18,26,56);
   background: linear-gradient(130deg, rgba(18,26,56,0.75) 0%, rgba(0,0,255,0.75) 150%);
-  transition: left 0.3s;
   font-weight: 400;
 }
 
 .addNames.show {
-  left: calc(100% - 300px);
+  display: block;
 }
 
 .inputWrapper {
