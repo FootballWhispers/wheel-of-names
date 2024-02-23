@@ -34,18 +34,36 @@ body {
 
 .App {
   font-family: "Williams", "Inter", sans-serif;
+  font-weight: 500;
   text-align: center;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  font-weight: 500;
+  justify-content: space-evenly;
 }
 
-.spinButtonText {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+  width: 750px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    width: 300px;
+    height: 300px;
+  }
+  
 }
 
 .addNames {
@@ -157,8 +175,8 @@ li span {
   padding: 30px 30px 0px 30px;
   font-family: "WilliamsExtraBold", "WilliamsBold", "Williams", "Inter", sans-serif;
   font-weight: 800;
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,7 +201,7 @@ li span {
 .brand {
   color: white;
   padding: 30px;
-  font-size: 20px;
+  font-size: 1rem;
   text-shadow:
     /* White glow */
     0 0 7px #a5a5a576,
@@ -194,13 +212,6 @@ li span {
     0 0 92px #a5a5a576,
     0 0 102px #a5a5a576,
     0 0 151px #a5a5a576;
-}
-
-.main {
-  display: flex;
-  justify-content: center;
-  height: 75%;
-  margin: 0 auto;
 }
 
 .wheel {
@@ -229,7 +240,7 @@ text {
 
 p.show-text {
   color: white;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: "Williams", "Inter", sans-serif;
   text-align: left;
   position: absolute;
