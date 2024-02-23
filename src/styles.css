@@ -1,0 +1,134 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Williams";
+  src: url("src/fonts/Williams-Regular.woff");
+}
+
+@font-face {
+  font-family: "WilliamsBold";
+  src: url("src/fonts/Williams-Bold.woff");
+}
+
+@font-face {
+  font-family: "WilliamsExtraBold";
+  src: url("src/fonts/Williams-ExtraBold.woff");
+}
+
+.App {
+  font-family: "Williams";
+  text-align: center;
+  background-image: url('/workspaces/workspace/src/images/V2.png');
+}
+
+.spinButtonText {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.addNames {
+  margin: 100px;
+  width: 100%;
+}
+
+.inputWrapper {
+  display: flex;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+input {
+  padding: 0.8em;
+  font-family: "Williams";
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  padding: 0.8em;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: "Williams";
+}
+
+input,
+button {
+  font-size: 1em;
+  border: 2px solid rgba(20, 25, 63, 1);
+}
+
+.addButton {
+  color: white;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 244, 0.7);
+}
+
+.deleteButton {
+  color: white;
+  background-color: rgba(0, 0, 244, 0.7);
+  font-size: 1em;
+  border-radius: 100%;
+  width: 52px;
+  height: 52px;
+  margin: 0px 4px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+li {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  margin-bottom: 7px;
+  color: white;
+  background: rgba(20, 25, 63, 1);
+  border-radius: 5px;
+}
+
+.title {
+  color: white;
+  padding: 30px 30px 0px 30px;
+  font-family: "WilliamsExtraBold";
+  font-size: 50px;
+  line-height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question {
+  color: #041290;
+  background-color: white;
+  width: 60px;
+}
+
+.brand {
+  color: white;
+  padding: 0px 20px 20px 20px;
+  font-size: 20px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wheel {
+  box-shadow: 10px 5px 5px red;
+}
