@@ -61,6 +61,7 @@ body {
   background: rgb(18,26,56);
   background: linear-gradient(130deg, rgba(18,26,56,0.75) 0%, rgba(0,0,255,0.75) 150%);
   font-weight: 400;
+  overflow-y: scroll;
 }
 
 .addNames.show {
