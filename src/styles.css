@@ -196,7 +196,9 @@ li span {
 }
 
 .main {
-  height: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  height: 75%;
   margin: 0 auto;
 }
 
