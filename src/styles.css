@@ -9,26 +9,27 @@ body {
   background-size: cover;
   background-color: #041290;
   margin: 0;
+  overflow: hidden;
 }
 
 @font-face {
   font-family: "WilliamsLight";
-  src: url("src/fonts/Williams-Light.woff");
+  src: url("src/fonts/Williams-Light.woff"), url("src/fonts/Williams-Light.ttf");
 }
 
 @font-face {
   font-family: "Williams";
-  src: url("src/fonts/Williams-Regular.woff");
+  src: url("src/fonts/Williams-Regular.woff"), url("src/fonts/Williams-Regular.ttf");
 }
 
 @font-face {
   font-family: "WilliamsBold";
-  src: url("src/fonts/Williams-Bold.woff");
+  src: url("src/fonts/Williams-Bold.woff"), url("src/fonts/Williams-Bold.ttf");
 }
 
 @font-face {
   font-family: "WilliamsExtraBold";
-  src: url("src/fonts/Williams-ExtraBold.woff");
+  src: url("src/fonts/Williams-ExtraBold.woff"), url("src/fonts/Williams-ExtraBold.ttf");
 }
 
 .App {
