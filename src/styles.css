@@ -14,22 +14,22 @@ body {
 
 @font-face {
   font-family: "WilliamsLight";
-  src: url("src/fonts/Williams-Light.woff"), url("src/fonts/Williams-Light.ttf");
+  src: url("src/fonts/Williams-Light.woff") format('woff'), url("src/fonts/Williams-Light.ttf") format('truetype');
 }
 
 @font-face {
   font-family: "Williams";
-  src: url("src/fonts/Williams-Regular.woff"), url("src/fonts/Williams-Regular.ttf");
+  src: url("src/fonts/Williams-Regular.woff") format('woff'), url("src/fonts/Williams-Regular.ttf") format('truetype');
 }
 
 @font-face {
   font-family: "WilliamsBold";
-  src: url("src/fonts/Williams-Bold.woff"), url("src/fonts/Williams-Bold.ttf");
+  src: url("src/fonts/Williams-Bold.woff") format('woff'), url("src/fonts/Williams-Bold.ttf") format('truetype');
 }
 
 @font-face {
   font-family: "WilliamsExtraBold";
-  src: url("src/fonts/Williams-ExtraBold.woff"), url("src/fonts/Williams-ExtraBold.ttf");
+  src: url("src/fonts/Williams-ExtraBold.woff") format('woff'), url("src/fonts/Williams-ExtraBold.ttf") format('truetype');
 }
 
 .App {
