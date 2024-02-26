@@ -13,7 +13,7 @@ export default function Wheel({ nameList }) {
       oldrotation = 0,
       r = 310,
       picked = 100000,
-      color = d3.scaleOrdinal().range(["#0000fb", "white"]);
+      color = d3.scaleOrdinal().range(["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D"]);
     const svg = d3
       .select("#chart")
       .append("svg")
@@ -31,6 +31,46 @@ export default function Wheel({ nameList }) {
         (h / 2 + padding.top) +
         ")",
       );
+
+    //set gold gradient colors
+
+    const goldColors = ["#8f6b29", "#fde08d", "#df9f28"];
+
+    const grad1 = svg.append('defs')
+      .append('linearGradient')
+      .attr('id', 'grad1')
+      .attr('x1', '0%')
+      .attr('x2', '0%')
+      .attr('y1', '0%')
+      .attr('y2', '100%');
+
+    grad1.selectAll('stop')
+      .data(goldColors)
+      .enter()
+      .append('stop')
+      .style('stop-color', function (d) { return d; })
+      .attr('offset', function (d, i) {
+        return 100 * (i / (goldColors.length - 1)) + '%';
+      })
+
+    const goldColors2 = ["#20185b", "#1a03fc", "#20185b"];
+
+    const grad2 = svg.append('defs')
+      .append('linearGradient')
+      .attr('id', 'grad2')
+      .attr('x1', '0%')
+      .attr('x2', '0%')
+      .attr('y1', '0%')
+      .attr('y2', '100%');
+
+    grad2.selectAll('stop')
+      .data(goldColors2)
+      .enter()
+      .append('stop')
+      .style('stop-color', function (d) { return d; })
+      .attr('offset', function (d, i) {
+        return 100 * (i / (goldColors2.length - 1)) + '%';
+      })
 
     container
       .append("circle")
@@ -86,7 +126,10 @@ export default function Wheel({ nameList }) {
       .attr("font-size", "25px")
       .attr("dy", "7")
       .attr("fill", function (d, i) {
-        return color(i + 1);
+        if (color(i) === '#FFA500' || color(i) === '#FAEB36' || color(i) === '#79C314') {
+          return 'black';
+        }
+        return 'white';
       })
       .text(function (d, i) {
         return nameList[i];
@@ -110,17 +153,16 @@ export default function Wheel({ nameList }) {
           ")"
         );
       })
-      .attr("fill", function (d, i) {
-        return color(i + 1);
-      });
+      .style('stroke', '#1e20c1')
+      .style("stroke-width", "0.5px")
+      .style('fill', 'url(#grad1)');
 
     container.on("click", spin);
 
     function spin(d) {
       oldrotation = rotation;
       let ps = 360 / nameList.length,
-        pieslice = Math.round(1440 / nameList.length),
-        rng = Math.floor(Math.random() * 1440 + 360);
+        rng = Math.floor(Math.random() * 1440 + 1800);
 
       rotation = Math.round(rng / ps) * ps;
       picked = Math.round(nameList.length - (rotation % 360) / ps);
@@ -130,44 +172,6 @@ export default function Wheel({ nameList }) {
       vis.transition().duration(10000).attrTween("transform", rotTween).ease(d3.easeCubicOut);
     }
     //draw spin circle
-    const colors = ["#8f6b29", "#fde08d", "#df9f28"];
-
-    const grad1 = svg.append('defs')
-      .append('linearGradient')
-      .attr('id', 'grad1')
-      .attr('x1', '0%')
-      .attr('x2', '0%')
-      .attr('y1', '0%')
-      .attr('y2', '100%');
-
-    grad1.selectAll('stop')
-      .data(colors)
-      .enter()
-      .append('stop')
-      .style('stop-color', function (d) { return d; })
-      .attr('offset', function (d, i) {
-        return 100 * (i / (colors.length - 1)) + '%';
-      })
-
-      const colors2 = ["#20185b", "#1a03fc", "#20185b"];
-
-      const grad2 = svg.append('defs')
-        .append('linearGradient')
-        .attr('id', 'grad2')
-        .attr('x1', '0%')
-        .attr('x2', '0%')
-        .attr('y1', '0%')
-        .attr('y2', '100%');
-      
-      grad2.selectAll('stop')
-        .data(colors2)
-        .enter()
-        .append('stop')
-        .style('stop-color', function (d) { return d; })
-        .attr('offset', function (d, i) {
-          return 100 * (i / (colors2.length - 1)) + '%';
-        })
-
     container
       .append("circle")
       .attr("cx", 0)
@@ -180,7 +184,7 @@ export default function Wheel({ nameList }) {
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", 40)
-      .style('stroke', '1e20c1')
+      .style('stroke', '#1e20c1')
       .style("stroke-width", "2px")
       .style('fill', 'url(#grad1)');
 
@@ -220,10 +224,10 @@ export default function Wheel({ nameList }) {
   }, [nameList]);
 
   return (
-      <div className="wheelHolder" style={{
-        width: '100%',
-      }}>
-        <div id="chart" ref={domRef}></div>
-      </div>
+    <div className="wheelHolder" style={{
+      width: '100%',
+    }}>
+      <div id="chart" ref={domRef}></div>
+    </div>
   );
 }
