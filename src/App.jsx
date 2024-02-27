@@ -14,14 +14,15 @@ export default function App() {
   return (
     <div className="App">
       <div className="title">
-        <div>WHEEL OR</div>
-        <div>NO WHEEL</div>
+        <img src="src/images/wonw.png" alt="wonw" />
       </div>
       <div className="main">
         <Wheel key={nameList.length} nameList={nameList} />
         <AddNames nameList={nameList} setNameList={addName} show={showNames} />
       </div>
-      <div className="brand">WILLIAMS RACING</div>
+      <div className="brand">
+        <img src="src/images/williamslogo.png" alt="logo" />
+      </div>
       <p className="show-text" onClick={() => setShowNames(!showNames)}>{showNames ? 'Hide' : 'Edit Names'}</p>
     </div>
   );

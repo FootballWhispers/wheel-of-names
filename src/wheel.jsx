@@ -13,7 +13,7 @@ export default function Wheel({ nameList }) {
       oldrotation = 0,
       r = 310,
       picked = 100000,
-      color = d3.scaleOrdinal().range(["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D"]);
+      color = d3.scaleOrdinal().range(["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D", "black"]);
     const svg = d3
       .select("#chart")
       .append("svg")
@@ -109,8 +109,9 @@ export default function Wheel({ nameList }) {
         return color(i);
       });
     arcs
-      .append("text")
-      .attr("transform", function (d) {
+      .append("foreignObject")
+      .attr("transform", function (d, i) {
+        const long = nameList[i].length > 12;
         d.innerRadius = 0;
         d.outerRadius = r;
         d.angle = (d.startAngle + d.endAngle) / 2;
@@ -118,20 +119,22 @@ export default function Wheel({ nameList }) {
           "rotate(" +
           ((d.angle * 180) / Math.PI - 90) +
           ")translate(" +
-          (d.outerRadius - 50) +
-          ")"
+          (d.outerRadius - 200) +
+          (long ? ", -20)" : ", -12)")
         );
       })
-      .attr("text-anchor", "end")
-      .attr("font-size", "25px")
-      .attr("dy", "7")
-      .attr("fill", function (d, i) {
+      .attr("width", 150)
+      .attr("height", 100)
+      .style("text-align", "right")
+      .style("font-size", "16px")
+      .append("xhtml:span")
+      .style("color", function (d, i) {
         if (color(i) === '#FFA500' || color(i) === '#FAEB36' || color(i) === '#79C314') {
           return 'black';
         }
         return 'white';
       })
-      .text(function (d, i) {
+      .html(function (d, i) {
         return nameList[i];
       });
 

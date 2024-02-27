@@ -4,8 +4,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./images/V2.png');
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
   background-size: cover;
   background-color: #041290;
   margin: 0;
@@ -63,7 +65,7 @@ body {
     width: 300px;
     height: 300px;
   }
-  
+
 }
 
 .addNames {
@@ -76,8 +78,8 @@ body {
   height: calc(100% - 50px);
   padding-left: 25px;
   padding-top: 50px;
-  background: rgb(18,26,56);
-  background: linear-gradient(130deg, rgba(18,26,56,0.75) 0%, rgba(0,0,255,0.75) 150%);
+  background: rgb(18, 26, 56);
+  background: linear-gradient(130deg, rgba(18, 26, 56, 0.75) 0%, rgba(0, 0, 255, 0.75) 150%);
   font-weight: 400;
   overflow-y: scroll;
 }
@@ -190,6 +192,10 @@ li span {
     0 0 92px #a5a5a576,
     0 0 102px #a5a5a576,
     0 0 151px #a5a5a576;
+
+  img {
+    width: 350px;
+  }
 }
 
 .question {
@@ -212,6 +218,10 @@ li span {
     0 0 92px #a5a5a576,
     0 0 102px #a5a5a576,
     0 0 151px #a5a5a576;
+
+  img {
+    width: 200px;
+  }
 }
 
 .wheel {
@@ -248,4 +258,9 @@ p.show-text {
   right: 12px;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.wheelName {
+  width: 100px;
+  max-width: 100px;
 }
