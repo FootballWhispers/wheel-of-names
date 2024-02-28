@@ -13,7 +13,7 @@ export default function Wheel({ nameList }) {
       oldrotation = 0,
       r = 310,
       picked = 100000,
-      color = d3.scaleOrdinal().range(["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D", "black"]);
+      color = d3.scaleOrdinal().range(["#0000fb", "white"]);
     const svg = d3
       .select("#chart")
       .append("svg")
@@ -129,10 +129,7 @@ export default function Wheel({ nameList }) {
       .style("font-size", "16px")
       .append("xhtml:span")
       .style("color", function (d, i) {
-        if (color(i) === '#FFA500' || color(i) === '#FAEB36' || color(i) === '#79C314') {
-          return 'black';
-        }
-        return 'white';
+        return color(i + 1);
       })
       .html(function (d, i) {
         return nameList[i];

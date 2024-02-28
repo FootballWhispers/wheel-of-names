@@ -241,11 +241,11 @@ text {
 }
 
 #arrow {
-  filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 1));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 1));
 }
 
 .arc {
-  filter: drop-shadow(12px 12px 124px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.25));
 }
 
 p.show-text {
